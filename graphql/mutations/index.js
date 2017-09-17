@@ -1,7 +1,7 @@
 import userMutation from './user';
-// import postMutation from './post';
+import newsMutation from './news';
 
 export default {
-    ...userMutation
-    // ...postMutation
+    ...userMutation,
+    ...newsMutation
 }

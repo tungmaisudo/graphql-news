@@ -24,10 +24,11 @@ app.use(session({
     secret: 'keyboard cat',
     resave: false,
     saveUninitialized: true,
-    cookie: { maxAge: 60*60*1000 }
+    cookie: { maxAge: 60 * 60 * 1000 }
 }))
 
-mongoose.connect('mongodb://localhost:27017/graphql-news');
+var dbConfig = require('./config/db');
+mongoose.connect('mongodb://' + dbConfig.dbuser + ':' + dbConfig.dbpassword + '@ds137441.mlab.com:37441/graphql-news');
 const db = mongoose.connection
 db.on('error', () => console.log('Failed to connect to DB.'))
     .once('open', () => console.log('Connected to DB. '));

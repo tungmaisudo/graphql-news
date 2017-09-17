@@ -16,17 +16,17 @@ const newsSchema = new Schema({
         type: String,
         required: true
     },
-    author: {
+    author_id: {
         type: Schema.Types.ObjectId,
         required: true
     },
     view: {
         type: Number
     },
-    category: {
+    category_id: {
         type: Schema.Types.ObjectId,
         required: true
     }
 }, { collection: 'news', timestamps: true });
 
-export default mongoose.model('news', userSchema);
+export default mongoose.model('news', newsSchema);

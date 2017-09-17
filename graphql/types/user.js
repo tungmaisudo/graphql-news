@@ -34,7 +34,20 @@ export const userType = new GraphQLObjectType({
     })
 })
 
-
+export const authorType = new GraphQLObjectType({
+    name: 'Author',
+    fields: () => ({
+        _id: {
+            type: new GraphQLNonNull(GraphQLID)
+        },
+        email: {
+            type: GraphQLString
+        },
+        name: {
+            type: GraphQLString
+        }
+    })
+})
 
 export const userInputType = new GraphQLInputObjectType({
     name: 'UserInput',

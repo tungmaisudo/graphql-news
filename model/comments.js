@@ -8,6 +8,9 @@ const commentsSchema = new Schema({
         type: Schema.Types.ObjectId,
         required: true
     },
+    comment_id: {
+        type: Schema.Types.ObjectId
+    },
     name: {
         type: String,
         required: true
