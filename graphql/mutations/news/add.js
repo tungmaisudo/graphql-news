@@ -15,6 +15,7 @@ export default {
     },//params
     resolve(root, params) {
         const newsModal = new NewsModel(params.data);
+        newsModal.view = 0;
         const newNews = newsModal.save();
         if (!newNews) {
             throw new Error('Error adding user');

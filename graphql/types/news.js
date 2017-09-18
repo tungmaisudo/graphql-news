@@ -10,10 +10,12 @@ import {
     GraphQLBoolean
 } from 'graphql';
 
-import {authorType} from './user';
+import { authorType } from './user';
 import UserModel from '../../model/users';
-import {categoryType} from './category';
+import { categoryType } from './category';
 import CategoryModel from '../../model/categorys';
+import { commentType } from './comment';
+import CommentModel from '../../model/comments'
 
 export const newsType = new GraphQLObjectType({
     name: 'News',
@@ -43,6 +45,12 @@ export const newsType = new GraphQLObjectType({
             type: categoryType,
             resolve(news) {
                 return CategoryModel.findById(news.category_id).exec();
+            }
+        },
+        comment: {
+            type: new GraphQLList(commentType),
+            resolve(news) {
+                return CommentModel.find({ news_id: news._id }).exec();
             }
         }
     })
