@@ -25,6 +25,30 @@ export const userType = new GraphQLObjectType({
         password: {
             type: GraphQLString
         },
+        company: {
+            type: GraphQLString
+        },
+        first_name: {
+            type: GraphQLString
+        },
+        last_name: {
+            type: GraphQLString
+        },
+        address: {
+            type: GraphQLString
+        },
+        city: {
+            type: GraphQLString
+        },
+        contry: {
+            type: GraphQLString
+        },
+        postal_code: {
+            type: GraphQLInt
+        },
+        about_me: {
+            type: GraphQLString
+        },
         role: {
             type: GraphQLString
         },
@@ -45,6 +69,30 @@ export const authorType = new GraphQLObjectType({
         },
         name: {
             type: GraphQLString
+        },
+        company: {
+            type: GraphQLString
+        },
+        first_name: {
+            type: GraphQLString
+        },
+        last_name: {
+            type: GraphQLString
+        },
+        address: {
+            type: GraphQLString
+        },
+        city: {
+            type: GraphQLString
+        },
+        contry: {
+            type: GraphQLString
+        },
+        postal_code: {
+            type: GraphQLInt
+        },
+        about_me: {
+            type: GraphQLString
         }
     })
 })
@@ -59,6 +107,30 @@ export const userInputType = new GraphQLInputObjectType({
             type: GraphQLString
         },
         password: {
+            type: GraphQLString
+        },
+        company: {
+            type: GraphQLString
+        },
+        first_name: {
+            type: GraphQLString
+        },
+        last_name: {
+            type: GraphQLString
+        },
+        address: {
+            type: GraphQLString
+        },
+        city: {
+            type: GraphQLString
+        },
+        contry: {
+            type: GraphQLString
+        },
+        postal_code: {
+            type: GraphQLInt
+        },
+        about_me: {
             type: GraphQLString
         },
         role: {

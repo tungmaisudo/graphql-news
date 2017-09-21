@@ -16,11 +16,41 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
-    role:{
-         type: String,
-         required: true
+    company: {
+        type: String
     },
-    flag_active:{
+    first_name: {
+        type: String,
+        required: true
+    },
+    last_name: {
+        type: String,
+        required: true
+    },
+    address: {
+        type: String,
+        required: true
+    },
+    city: {
+        type: String,
+        required: true
+    },
+    contry: {
+        type: String,
+        required: true
+    },
+    postal_code: {
+        type: Number,
+        required: true
+    },
+    about_me: {
+        type: String
+    },
+    role: {
+        type: String,
+        required: true
+    },
+    flag_active: {
         type: Boolean
     }
 }, { collection: 'user', timestamps: true });
