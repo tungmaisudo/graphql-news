@@ -25,7 +25,7 @@ router.post('/login', function (req, res, next) {
       res.redirect('member');
     } else if (rows[0].role == 'ADMIN') {
       req.session.userId = rows[0]._id
-      res.redirect('admin');
+      res.redirect('/');
     } else
       res.redirect('error');
   });

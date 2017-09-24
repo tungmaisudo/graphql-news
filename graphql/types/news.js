@@ -47,6 +47,9 @@ export const newsType = new GraphQLObjectType({
                 return CategoryModel.findById(news.category_id).exec();
             }
         },
+        createdAt: {
+            type: GraphQLString
+        },
         comment: {
             type: new GraphQLList(commentType),
             resolve(news) {

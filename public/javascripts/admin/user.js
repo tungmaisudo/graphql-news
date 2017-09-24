@@ -1,7 +1,6 @@
 $(document).ready(function (e) {
 
     var graph = graphql("/graphql")//connect
-
     var user = graph(`query ($id: ID!){
 				User(id:$id) {
 				    email
@@ -16,7 +15,7 @@ $(document).ready(function (e) {
                     about_me
 				}
 			}`, {
-            id: "59c3db829cbf74155c62bb5c"
+            id: userId
         }).then(function (response) {
             let user = response.User;
             var company = user.company;
@@ -44,8 +43,50 @@ $(document).ready(function (e) {
             $('#title').text(firstName + " " + lastName);
             $('#smallTitle').text(username);
             $('#description').text("\"" + aboutMe + "\"");
+
+            $('#loader-data').hide();
+
         }).catch(function (error) {
-            alert(error);
+            alert("Error")
+            console.log(error);
         })
+
+        $('#btn-update').click(function(e){
+            e.preventDefault();
+            graph(`mutation($id:ID!,$email:String!,$name:String!,$company:String!,$first_name:String!,
+                    $last_name:String,$address:String,$city:String,$contry:String,$postal_code:String!,$about_me:String!){
+                    updateUser(
+                        id:$id
+                        data:{
+                            email:$email
+                            name:$name
+                            company:$company
+                            first_name:$first_name
+                            last_name:$last_name
+                            address:$address
+                            city:$city
+                            contry:$country
+                            postal_code:$postalCode
+                            about_me:$aboutMe
+                        }
+                    )
+                }`, {
+                    id:userId,
+                    email:$('#email').val(),
+                    name:$('#username').val(),
+                    company: $('#company').val(),
+                    first_name:$('#firstName').val(),
+                    last_name: $('#lastName').val(),
+                    address:$('#address').val(),
+                    city:$('#city').val(),
+                    country:$('#country').val(),
+                    postalCode:$('#zipCode').val(),
+                    aboutMe:$('#aboutMe').val()
+                }).then(function (response) {
+                    $('#loader-data').hide();
+                }).catch(function (error) {
+                    console.log(error)
+                })
+        });
 
 });

@@ -46,6 +46,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/users', users);
 
+
+
 // GraphQL API
 app.use('/graphql', graphqlHTTP(() => ({ //Tích hợp vào Express
     schema,
